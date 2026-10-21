@@ -1,0 +1,29 @@
+{
+  "name": "pii-merchant",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sample merchant checkout that produces orders, payment attempts, verified webhook events and structured logs.",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "express": "4.22.3",
+    "pg": "8.23.1",
+    "pino": "10.4.0",
+    "stripe": "23.0.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/express": "4.17.21",
+    "@types/node": "20.19.43",
+    "@types/pg": "8.23.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3"
+  },
+  "engines": { "node": ">=20" }
+}

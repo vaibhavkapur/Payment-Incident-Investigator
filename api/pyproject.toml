@@ -1,0 +1,32 @@
+[project]
+name = "pii-api"
+version = "0.1.0"
+description = "Payment Incident Investigator: incident API, Google ADK investigator, approval-bound recovery worker and verification."
+requires-python = ">=3.12"
+dependencies = [
+    "google-adk==2.12.0",
+    "fastapi==0.141.1",
+    "uvicorn[standard]==0.54.0",
+    "sqlalchemy==2.1.5",
+    "psycopg[binary]==3.3.6",
+    "greenlet>=3.1",
+    "pydantic==2.14.1",
+    "pydantic-settings==2.16.0",
+    "pyjwt==2.15.1",
+    "httpx==0.28.1",
+    "stripe==16.0.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]

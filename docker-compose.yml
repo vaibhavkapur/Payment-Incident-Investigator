@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: pii-postgres
+    environment:
+      POSTGRES_USER: pii
+      POSTGRES_PASSWORD: pii
+      POSTGRES_DB: pii
+    ports:
+      - "54329:5432"
+    volumes:
+      - pii-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U pii -d pii"]
+      interval: 2s
+      timeout: 2s
+      retries: 30
+volumes:
+  pii-pgdata:
